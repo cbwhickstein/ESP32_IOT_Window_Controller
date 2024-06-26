@@ -101,7 +101,7 @@ String website_window_open = R"(
 
 String toggle_redirect = R"(
 <head>
-    <meta http-equiv=\"Refresh\" content=\"0; URL=./\" />
+    <meta http-equiv="Refresh" content="0; url=./" />
 </head>
 )";
 
