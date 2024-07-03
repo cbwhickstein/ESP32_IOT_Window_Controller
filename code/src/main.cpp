@@ -107,14 +107,14 @@ String toggle_redirect = R"(
 )";
 
 
-Servo myServo;  // Create a servo object
+Servo windowMoveServo;  // Create a servo object
 
 void
 setup()
 {
   Serial.begin(115200);
   WiFi.begin(ssid, password);
-  myServo.attach(18);
+  windowMoveServo.attach(18);
 
   // Print Chip info
   // Retrieve and print the ESP32 chip information
@@ -154,9 +154,9 @@ setup()
   server.on("/toggle", HTTP_GET, [](AsyncWebServerRequest* request) {
     state = !state;
     if (state) {
-        myServo.write(10);
+        windowMoveServo.write(10);
     } else {
-        myServo.write(90);
+        windowMoveServo.write(90);
     }
     request->send(303, "text/html", toggle_redirect);
   });
